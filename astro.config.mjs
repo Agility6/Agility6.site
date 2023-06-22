@@ -36,4 +36,5 @@ export default defineConfig({
       config: { applyBaseStyles: false },
     }),
   ],
+  site: 'https://github.com/Agility6/Agility6.io',
 });

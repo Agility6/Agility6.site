@@ -99,7 +99,7 @@ D —— 01
       }
     }
     ```
-2. 初始化，因为要保证字符编码总是最短，所以在字母出现的频率上就有要求，这里参考了[](https://www3.nd.edu/~busiforc/handouts/cryptography/letterfrequencies.html)。有了字母出现的频率就可以进行哈夫曼树的生成。简单复习Huffman的特点
+2. 初始化，因为要保证字符编码总是最短，所以在字母出现的频率上就有要求，这里参考了[blog](https://www3.nd.edu/~busiforc/handouts/cryptography/letterfrequencies.html)。有了字母出现的频率就可以进行哈夫曼树的生成。简单复习Huffman的特点
     - 初始时有n颗二叉树，要进过``n-1``次合并最终形成哈夫曼树
     - 经过n-1 次合并产生n-1个新结点，且n-1个新结点都是具有两个孩子的分支结点
     - 哈夫曼树共有``2n-1``个结点，且分支结点度不均不为1

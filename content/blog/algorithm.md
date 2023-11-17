@@ -18,7 +18,6 @@ date: 2023-11-10
 
 - 贪心  
 
-
 ## 基础算法
 
 ### 快速排序
@@ -219,3 +218,117 @@ a[n] = b[1] + b[2] + b[3] + ... + b[n]
 ```
 
 [Code🌰](https://github.com/Agility6/algorithm/blob/main/algorithm-java/src/basic_algorithm/differential2.java)
+
+### 离散化
+
+- 假设给定的数组数`[20, 4000, 50000, 1000000]`这是一个稀疏数组，因此可以使用离散化进行映射
+
+- `[20, 4000, 50000, 1000000]` = `[0, 1, 2, 3]`将其映射
+
+1. 排序 + 去重
+
+2. 二分查找离散化的下标
+
+```java
+
+     /**
+     * 数组去重
+     * @param list
+     * @return 
+     */
+    public static int unique(List<Integer> list) {
+
+        int j = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (i == 0 || !list.get(i).equals(list.get(i - 1))) {
+                list.set(j, list.get(i));
+                j++;
+            }
+        }
+
+        return j;
+    }
+
+    /**
+     * 二分求出x对应的离散化的值
+     * @param x
+     * @param list
+     * @return
+     */
+    public static int find(int x, List<Integer> list) {
+
+        int l = 0;
+        int r = list.size() - 1;
+
+        while (l < r) {
+            int mid = (l + r) >> 1;
+            if (list.get(mid) >= x) r = mid;
+            else l = mid + 1;
+        }
+
+        return r + 1; // 映射1, 2
+    }
+
+
+    class Node {
+
+        int first;
+        int second;
+        public Node(int x, int c) {
+            this.first = x;
+            this.second = c;
+        }
+    }
+
+```
+
+[Code🌰](https://github.com/Agility6/algorithm/blob/main/algorithm-java/src/basic_algorithm/discretization.java)
+
+### 区间合并
+
+1. 排序
+
+2. `L = R = MIN`。如果`a[0] > R`输出，否则`R = Max(R, a[1])`
+
+```java
+
+    public static int merge(ArrayList<int[]> list) {
+        
+        ArrayList<int []> res = new ArrayList<>();
+
+        // 排序
+        list.sort(new Comparator<int []>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[0] - o2[0]; 
+            }
+        });
+
+        // 初始化L和R为最小值
+        int l = Integer.MIN_VALUE; 
+        int r = Integer.MIN_VALUE;
+
+        for (int[] a : list) {
+            if (a[0] > r) {
+                // 特判初始化情况
+                if (l != Integer.MIN_VALUE) {
+                    res.add(new int[] {l, r});
+                }
+                l = a[0];
+                r = a[1];
+            } else {
+                r = Math.max(a[1], r);
+            }
+        }
+
+        // 手动将最后一个区间添加到res中
+        if (l != Integer.MIN_VALUE) {
+            res.add(new int[] {l, r});
+        }
+
+        // 返回合并后的数量
+        return res.size();
+    }
+```
+
+[Code🌰](https://github.com/Agility6/algorithm/blob/main/algorithm-java/src/basic_algorithm/IntervalMerging.java)

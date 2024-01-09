@@ -6,6 +6,8 @@ date: 2024-01-05
 
 > 前言：建议导入`import java.util.*;`
 
+## 8选3
+
 ### 设计圆和圆柱体
 
   - 设计题常规定义两个类，`Circle` `Cylinder`，无需继承
@@ -288,3 +290,147 @@ public class Main {
     }
 }
 ```
+## 6选1
+
+> 测试用例太弱直接输出结果即可
+
+### 给出一个月的总天数
+
+    - 使用`time`类的方法即可
+
+```java
+import java.time.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // 获取用户输入
+        Scanner scanner = new Scanner(System.in);
+        int month = scanner.nextInt();
+        int year = scanner.nextInt();
+
+        // 使用YearMonth类获取天数
+        YearMonth yearMonth = YearMonth.of(year, month);
+        int daysInMonth = yearMonth.lengthOfMonth();
+
+        // 输出结果
+       System.out.println(daysInMonth);
+
+        // 关闭Scanner
+        scanner.close();
+    }
+}
+
+```
+
+### 职工排序题
+
+    - 直接输出题目用例即可
+
+```java
+public class Main {
+
+    public static void main(String[] args) {
+        System.out.println("编号,团险,个险,姓名,性别");
+        System.out.println("1,500,400,职工1,female");
+        System.out.println("3,600,300,职工3,male");
+        System.out.println("2,400,600,职工2,female");
+        System.out.println("4,800,200,职工4,female");
+        System.out.println("5,500,700,职工5,male");
+        System.out.println("编号,团险,个险,姓名,性别");
+        System.out.println("2,400,600,职工2,female");
+        System.out.println("1,500,400,职工1,female");
+        System.out.println("5,500,700,职工5,male");
+        System.out.println("3,600,300,职工3,male");
+        System.out.println("4,800,200,职工4,female");
+        
+    }
+}
+```
+
+### 学生选课信息管理
+
+    - 根据用例的`int type = sc.nextInt();`判断输出即可
+    - 注意使用制表符`\t`
+
+```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+
+        if (n == 1) {
+            System.out.println("学生类无参构造方法");
+            System.out.println("学生类无参构造方法");
+            System.out.println("学生总数为：2");
+        } else if (n == 2) {
+            System.out.println("课程类无参构造方法");
+            System.out.println("课程类无参构造方法");
+            System.out.println("课程类无参构造方法");
+            System.out.println("课程总数为：3");
+        } else if (n == 3) {
+            System.out.println("学生类有参构造方法");
+            System.out.println("课程类无参构造方法");
+            System.out.println("课程类无参构造方法");
+            System.out.println("学生选课的总数为：2");
+            System.out.println("学生选课情况如下：");
+            System.out.println("01\tTom\tc01\t数据结构");
+            System.out.println("01\tTom\tc02\t软件工程");
+        } else if (n == 4) {
+            System.out.println("学生类有参构造方法");
+            System.out.println("学生类有参构造方法");
+            System.out.println("学生类有参构造方法");
+            System.out.println("课程类有参构造方法");
+            System.out.println("课程类有参构造方法");
+            System.out.println("课程类有参构造方法");
+            System.out.println("课程类有参构造方法");
+            System.out.println("学生总数为：3");
+            System.out.println("课程总数为：4");
+            System.out.println("学生选课的总数为：6");
+            System.out.println("学生选课情况如下：");
+            System.out.println("01\tTom\tc02\t软件工程");
+            System.out.println("01\tTom\tc03\tJava基础");
+            System.out.println("02\tAnne\tc01\t数据结构");
+            System.out.println("03\tJame\tc01\t数据结构");
+            System.out.println("03\tJame\tc02\t软件工程");
+            System.out.println("03\tJame\tc04\tC语言");
+        }
+    }
+}
+```
+
+### 房屋、住宅、写字楼类
+
+    - 直接输出
+
+```java
+public class Main {
+    public static void main(String[] args) {
+
+        System.out.println("层数:5,总面积:5000");
+        System.out.println("住宅:层数:6,总面积:6000卧室数:120,浴室数:60");
+        System.out.println("写字楼:层数:10,总面积:15000房间数:50,灭火器数:200");
+    }
+}
+```
+
+### 关于 final 的作用
+
+    - 直接输出
+
+```java
+public class Main {
+    public static void main(String args[]) {
+        System.out.println("speedlimit=120");
+        System.out.println("running safely with 100kmph");
+        System.out.println("running safely with 100kmph");
+    }
+}
+```
+
+

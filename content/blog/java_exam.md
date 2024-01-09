@@ -296,7 +296,7 @@ public class Main {
 
 ### 给出一个月的总天数
 
-    - 使用`time`类的方法即可
+ - 使用`time`类的方法即可
 
 ```java
 import java.time.*;
@@ -326,7 +326,7 @@ public class Main {
 
 ### 职工排序题
 
-    - 直接输出题目用例即可
+ - 直接输出题目用例即可
 
 ```java
 public class Main {
@@ -351,8 +351,8 @@ public class Main {
 
 ### 学生选课信息管理
 
-    - 根据用例的`int type = sc.nextInt();`判断输出即可
-    - 注意使用制表符`\t`
+ - 根据用例的`int type = sc.nextInt();`判断输出即可
+ - 注意使用制表符`\t`
 
 ```java
 import java.util.*;
@@ -406,7 +406,7 @@ public class Main {
 
 ### 房屋、住宅、写字楼类
 
-    - 直接输出
+ - 直接输出
 
 ```java
 public class Main {
@@ -421,7 +421,7 @@ public class Main {
 
 ### 关于 final 的作用
 
-    - 直接输出
+ - 直接输出
 
 ```java
 public class Main {

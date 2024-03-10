@@ -98,6 +98,14 @@ export const config: Config = {
       },
       selfClosing: true,
     },
+    excalidraw: {
+      render: "ExcalidrawEmbed",
+      attributes: {
+        url: { type: String, required: true },
+        height: {type: String, required: true},
+      },
+      selfClosing: true,
+    },
   },
   nodes: {
     heading: {

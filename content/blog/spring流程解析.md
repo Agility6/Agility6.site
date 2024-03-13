@@ -141,3 +141,31 @@ BeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(defaultL
 > 图解流程
 
 {% excalidraw url="https://excalidraw.com/#json=6-eh-zZeO-WpegslIbI_1,VHHFoWD7PbBNhdLMZ6Melw" height="550px" /%}
+
+### 总结Spring Bean实例的组册流程
+
+1. 定义好Spring配置文件。
+
+2. 通过Resource对象将Spring配置文件进行抽象，抽象成一个具体的Resource对象（如ClassPathResource）。
+
+3. 定义好将要使用的Bean工厂（各种BeanFactory）。
+
+4. 定义好XmlBeanDefinitionReader对象，并将工厂对象作为参数传递过去，从而构建好两者之间的关联关系。
+
+5. 通过XmlBeanDefinitionReader对象读取之前所抽取出的Resource对象。
+
+6. **流程开始进行解析**
+
+7. 针对XML文件进行各种元素以及元素属性的解析，这里面，真正的解析是通过BeanDefinitionParserDelegate对象来完成的（委托模式）
+
+8. 通过BeanDefinitionParserDelegate对象在解析XML文件时，又用到了模版方法设计模式（pre，process，post）。
+
+9. 当所有的bean标签元素都解析完毕后，开始定义一个BeanDefinition对象，该对象是一个非常重要的对象，里面容纳了一个Bean相关的所有属性。
+
+10. BeanDefinition对象创建完毕后，Spring又会创建一个BeanDefinitionHolder对象来持有这个BeanDefinition对象。
+
+11. BeanDefinitionHolder对象主要包括两部分内容：beanName和BeanDefiniton。
+
+12. 工厂会将解析出来的Bean信息存放到内部的一个ConcurrentHashMap中，该Map的键是beanName（唯一），值是BeanDefinition对象。
+
+12. 调用Bean解析完毕的触发动作，从而触发响应的监听器的方法来执行（使用到了观察者模式）。

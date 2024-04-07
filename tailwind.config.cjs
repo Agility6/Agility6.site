@@ -5,8 +5,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        body: ["Open Sans", "sans-serif"],
-        heading: ["Open Sans", "sans-serif"],
+        // Kalam,Sans Serif,Sans
+        body: ["kalam regular", "Sans Serif", "Sans"],
+        heading: ["kalam regular", "Sans Serif", "Sans"],
       },
       colors: {
         transparent: "transparent",

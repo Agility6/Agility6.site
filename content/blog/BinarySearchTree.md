@@ -1,6 +1,6 @@
 ---
 external: false
-title: BinarySearchTree
+title: 二叉搜索树 🌲 🔍 
 date: 2024-03-12
 ---
 

@@ -1,6 +1,6 @@
 ---
 external: false
-title: Standard Git Commit Message
+title: 关于Git Commit的信息
 date: 2023-04-09
 ---
 ### Commit message should be

@@ -1,6 +1,6 @@
 ---
 external: false
-title: Java-Generic
+title: Java泛型<🌱>
 date: 2023-07-11
 ---
 

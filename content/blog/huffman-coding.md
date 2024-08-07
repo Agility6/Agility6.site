@@ -1,6 +1,6 @@
 ---
 external: false
-title: Huffman-coding
+title: 哈夫曼树的有趣实验-WIP
 date: 2023-05-14
 ---
 

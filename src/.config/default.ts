@@ -9,7 +9,7 @@ export const defaultConfig: ThemeConfig = {
     subtitle: 'Blog',
     author: 'Agility6',
     description: 'Rediscory the beauty of typography',
-    website: 'https://astro-theme-typography.vercel.app/',
+    website: 'https://agility6.site/about/',
     pageSize: 5,
     socialLinks: [
       {

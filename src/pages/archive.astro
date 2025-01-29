@@ -1,0 +1,56 @@
+---
+import LayoutDefault from '~/layouts/LayoutDefault.astro'
+import type { Post } from '~/types'
+import { formatDate, getPosts } from '~/utils'
+
+const posts = await getPosts(true)
+
+const yearMap = getYearMap(posts)
+
+interface ListItem {
+  title: string
+  href: string
+  date: string
+}
+
+function getYearMap(posts: Post[]) {
+  const result = new Map<number, ListItem[]>()
+  for (const post of posts) {
+    const year = (post.data.pubDate ?? new Date()).getFullYear()
+    const posts = result.get(year) ?? []
+    posts.push(getListItem(post))
+    result.set(year, posts)
+  }
+  return Array.from(result.entries())
+}
+
+function getListItem(post: Post): ListItem {
+  return {
+    title: post.data.title,
+    href: `/posts/${post.id}/`,
+    date: formatDate(post.data.pubDate, 'MMM D'), // Updated format
+  }
+}
+---
+
+<LayoutDefault>
+  <div flex="~ col gap-4">
+    {
+      yearMap.map(([year, posts]) => (
+        <section>
+          <h2 class="post-title text-4xl m-b-6 m-t-8">{year}</h2>
+          <ul class="pl-4" flex="~ col gap-4">
+            {posts.map(({ title, href, date }) => (
+              <li>
+                <div class="post-title">
+                  <a href={href} class="text-base">{title}</a>
+                  <time class="font-size-3.2 opacity-50">{date}</time>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+</LayoutDefault>

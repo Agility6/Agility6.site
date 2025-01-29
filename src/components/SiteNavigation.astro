@@ -22,7 +22,10 @@ const { translate: t } = Astro.locals
       socialLinks.map(({ href, name }) => (
         <li>
           <a href={href} target="_blank" title={name} class="not-underline-hover inline-flex items-center">
-            <span class:list={[`i-mdi-${name}`, 'w-6 h-6']}>{name}</span>
+            {name === 'github' && <span class:list={['i-uil-github-alt', 'w-6 h-6']}></span>}
+            {name === 'rss' && <span class:list={['i-uil-rss', 'w-6 h-6']}></span>}
+            {name === 'twitter' && <span class:list={['i-uil-twitter-alt', 'w-6 h-6']}></span>}
+            {name === 'email' && <span class:list={['i-uil-envelope', 'w-6 h-6']}></span>}
           </a>
         </li>
       ))

@@ -76,7 +76,7 @@ export default defineConfig({
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
   safelist: [
-    ...themeConfig.site.socialLinks.map(social => `i-mdi-${social.name}`),
+    // ...themeConfig.site.socialLinks.map(social => `i-mdi-${social.name}`),
     'i-mdi-content-copy',
     'i-mdi-check',
   ],

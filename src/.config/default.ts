@@ -20,10 +20,10 @@ export const defaultConfig: ThemeConfig = {
         name: 'twitter',
         href: 'https://x.com/Tang86d',
       },
-      // {
-      //   name:'email',
-      //   href:'mailto:',
-      // },
+      {
+        name:'email',
+        href:'agility1013@gmail.com',
+      },
       {
         name: 'rss',
         href: '/atom.xml',
@@ -38,10 +38,10 @@ export const defaultConfig: ThemeConfig = {
         name: 'Archive',
         href: '/archive',
       },
-      {
-        name: 'Categories',
-        href: '/categories',
-      },
+      // {
+      //   name: 'Categories',
+      //   href: '/categories',
+      // },
       {
         name: 'About Me',
         href: '/about',
@@ -52,7 +52,6 @@ export const defaultConfig: ThemeConfig = {
       '© %year <a target="_blank" href="%website">%author</a>',
       'Theme <a target="_blank" href="https://github.com/Moeyua/astro-theme-typography">Typography</a> by <a target="_blank" href="https://moeyua.com">Moeyua</a>',
       'Proudly published with <a target="_blank" href="https://astro.build/">Astro</a>',
-      `Email: agility1013@gmail.com`
     ],
   },
   appearance: {

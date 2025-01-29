@@ -28,7 +28,7 @@ function getListItem(post: Post): ListItem {
   return {
     title: post.data.title,
     href: `/posts/${post.id}/`,
-    date: formatDate(post.data.pubDate, 'MM-DD'),
+    date: formatDate(post.data.pubDate, 'MMM D'), // Updated format
   }
 }
 ---
@@ -38,14 +38,14 @@ function getListItem(post: Post): ListItem {
     {
       yearMap.map(([year, posts]) => (
         <section>
-          <h2 class="post-title">{year}</h2>
-          <ul class="pl-6" flex="~ col gap-4">
+          <h2 class="post-title text-4xl m-b-6 m-t-8">{year}</h2>
+          <ul class="pl-4" flex="~ col gap-4">
             {posts.map(({ title, href, date }) => (
               <li>
-                <h3 class="post-title">
-                  <a href={href}>{title}</a>
-                </h3>
-                <time>{date}</time>
+                <div class="post-title">
+                  <a href={href} class="text-base">{title}</a>
+                  <time class="font-size-3.2 opacity-50">{date}</time>
+                </div>
               </li>
             ))}
           </ul>

@@ -44,28 +44,28 @@ subq      %16,   %rsp
 
   此时函数只包含返回地址（即调用函数的下一条指令的地址）
 
-  ![image](../assets/go&plan9/01.png)
+  ![image](../assets/goplan9/01.png)
 
 2. `pushq %rbp`
 
   将调用者的栈帧指针（`%rbp`）压入栈
   保存上一个栈帧的基地址，用于函数返回时恢复调用者的栈帧
 
-  ![image](../assets/go&plan9/02.png)
+  ![image](../assets/goplan9/02.png)
 
 3. `moveq %rsp,  %rbp`
 
   将当前栈指针%rsp的值赋给%rbp, 建立当前函数的栈帧基地址
   标记当前函数的栈帧起点
 
-  ![image](../assets/go&plan9/03.png)
+  ![image](../assets/goplan9/03.png)
 
 4. `subq $16, %rsp`
 
 	将栈指针%rsp向下移动16字节，为局部变量分配空间
 	完成局部变量栈空间的分配
 	
-	![image](../assets/go&plan9/04.png)
+	![image](../assets/goplan9/04.png)
 
 
 下面就来编写代码，验证一下吧
@@ -118,7 +118,7 @@ func main() {
 
 在这里只需要明白，Go在1.17之后使用了基于寄存器的调用规约。当然寄存器不是无限使用的，当达到一定程度就会使用栈传递。
 
-![image](../assets/go&plan9/05.png)
+![image](../assets/goplan9/05.png)
 
 > 不同的架构对于寄存器的使用可能会不一样～
 
@@ -145,7 +145,7 @@ func main() {
 
 - `R0, main.a-16(SP)`和`R0, main.a-8(SP)`也就是它们相隔的位置，如图所示
 
-  ![image](../assets/go&plan9/06.png)
+  ![image](../assets/goplan9/06.png)
 
 ```assembly
 	0x0018 00024 	MOVD	$go:string."hello"(SB), R0 # 这里仅仅是地址
@@ -354,7 +354,7 @@ func main() {
 
 ### 案例一
 
-![image](../assets/go&plan9/07.png)
+![image](../assets/goplan9/07.png)
 
 - 代码方式进行验证
 
@@ -394,7 +394,7 @@ func main() {
 
 ### 案例二
 
-![image](../assets/go&plan9/08.png)
+![image](../assets/goplan9/08.png)
 
 ```go
 package main
